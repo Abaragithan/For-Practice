@@ -39,16 +39,21 @@ public class ToDoList {
 
     public void displayMenu(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("N --> create and add new task \nR --> remove task\nS --> task status\nD --> display tasks : ");
+        System.out.print("N --> create and add new task \nR --> remove task\nS --> task status\nD --> display tasks\nT --> mark task as completed : ");
         String in = scanner.next();
         char c = in.toUpperCase().charAt(0);
         switch (c) {
             case 'N':
                 System.out.print("Enter the  task description : ");
-                String d = scanner.next();
-                System.out.println();
+                String d = scanner.nextLine();
+                scanner.nextLine();
                 System.out.print("Enter the  task ID(integer) : ");
-                int id = scanner.nextInt();
+                int id = 0;
+                try {
+                    id = scanner.nextInt();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
                 Task t = new Task(d, id);
                 addTask(t);
                 System.out.println("Your task added");
@@ -61,6 +66,17 @@ public class ToDoList {
                 break;
             case 'D':
                 displayTasks();
+                break;
+            case 'T':
+                System.out.print("Enter the  task id to update : ");
+                int j = 0;
+                try {
+                    j = scanner.nextInt();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                taskCompleted(j);
+                System.out.println("task marked as completed");
                 break;
             default:
                 System.out.println("Invalid input");

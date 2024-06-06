@@ -5,5 +5,6 @@ public class Main {
 
         ToDoList list = new ToDoList();
         list.displayMenu();
+        list.displayTasks();
     }
 }
