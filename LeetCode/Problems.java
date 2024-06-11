@@ -1,4 +1,4 @@
-package LeetCode;
+package Practice.LeetCode;
 
 public class Problems {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ToDoListProgram;
+package Practice.ToDoListProgram;
 
 import java.util.ArrayList;
 import java.util.Scanner;

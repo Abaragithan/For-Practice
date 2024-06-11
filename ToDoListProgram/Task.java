@@ -1,4 +1,4 @@
-package ToDoListProgram;
+package Practice.ToDoListProgram;
 
 public class Task {
     private String description;

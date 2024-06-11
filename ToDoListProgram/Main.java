@@ -1,4 +1,4 @@
-package ToDoListProgram;
+package Practice.ToDoListProgram;
 
 public class Main {
     public static void main(String[] args) {
