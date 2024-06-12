@@ -1,13 +1,14 @@
-package Practice;
+package Practice.Sorting;
 
 import java.util.Arrays;
 
 public class Sorting {
     public static void main(String[] args) {
-          int[] arr = {0,-3,6,9,7,3,5,1};
-          System.out.println(Arrays.toString(bubble(arr)));
-          System.out.println(Arrays.toString(selection(arr)));
+          int[] arr = {3,2,5,4,1};
+         // System.out.println(Arrays.toString(bubble(arr)));
+         // System.out.println(Arrays.toString(selection(arr)));
           System.out.println(Arrays.toString(insertion(arr)));
+          System.out.println(Arrays.toString(cycle(arr)));
     }
 
     // selection sort method
@@ -18,13 +19,6 @@ public class Sorting {
             swap(arr, maxIndex, last);
         }
         return arr;
-    }
-
-    // method for swapping two elements
-    private static void swap(int[] arr, int maxIndex, int last) {
-        int temp = arr[maxIndex];
-        arr[maxIndex] = arr[last];
-        arr[last] = temp;
     }
 
     // method for finding maximum in an array
@@ -68,6 +62,26 @@ public class Sorting {
         return arr;
     }
 
+    // Cyclic sort method
+    public static int[] cycle(int[] arr){
+        int i = 0;
+        while (i < arr.length){
+            int index = arr[i] - 1;
+            if (arr[i] != arr[index]){
+                swap(arr, i, index);
+            } else {
+                i++;
+            }
+        }
+        return arr;
+    }
+
+    // method for swapping two elements
+    private static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
 
 
 }
