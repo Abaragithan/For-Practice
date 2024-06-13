@@ -2,7 +2,7 @@ package Practice.LeetCode;
 
 public class MissingNumber {
     public static void main(String[] args) {
-        int[] nums = {0,1,3};
+        int[] nums = {0,1,6,3,5,2};
         System.out.println(missing(nums));
     }
 
