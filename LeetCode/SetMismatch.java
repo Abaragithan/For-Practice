@@ -1,19 +1,19 @@
 package Practice.LeetCode;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-public class FindDuplicateArray {
+public class SetMismatch {
     public static void main(String[] args) {
-        int[] nums = {1,1,2};
-        System.out.println(findDuplicates(nums));
+        int[] nums = {1,2,2,4};
+        System.out.println(Arrays.toString(findErrorNums(nums)));
     }
-    public static List<Integer> findDuplicates(int[] nums) {
+    public static int[] findErrorNums(int[] nums) {
         int i = 0;
-        List<Integer> ans = new ArrayList<>();
-        while (i < nums.length){
+        int[] ans = new int[2];
+        while (i < nums.length) {
             int index = nums[i] - 1;
-            if (nums[i] != nums[index]){
+            if (nums[i] != nums[index]) {
                 int temp = nums[i];
                 nums[i] = nums[index];
                 nums[index] = temp;
@@ -22,8 +22,10 @@ public class FindDuplicateArray {
             }
         }
         for (int j = 0; j < nums.length ; j++) {
+            int correct = nums[j] - 1;
             if (nums[j] != j + 1) {
-                ans.add(nums[j]);
+                ans[0] = nums[correct];
+                ans[1] = j + 1;
             }
         }
         return ans;
